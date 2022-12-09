@@ -1,0 +1,56 @@
+﻿<Window x:Class="santa_luchia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:santa_luchia"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="664.8" Width="1244.068">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="HNP2CW9-NSk.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <DataGrid x:Name="Tovar" HorizontalAlignment="Left" Height="615"  AutoGenerateColumns="False" Margin="10,10,0,0" VerticalAlignment="Top" Width="1035">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Наименование}"/>
+                <DataGridTextColumn Header="Тип товара" Binding="{Binding Тип.Тип_товара}"/>
+                <DataGridTextColumn Header="НоменклНомер" Binding="{Binding НоменклНомер}"/>
+                <DataGridTextColumn Header="КолНаСкладе" Binding="{Binding КолНаСкладе}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Цена}"/>
+                <DataGridTextColumn Header="ЗакупЦена" Binding="{Binding ЗакупЦенаШт}"/>
+                <DataGridTextColumn Header="НаценкаКомпании" Binding="{Binding НаценкаКомпании}"/>
+                <DataGridTextColumn Header="Поставщик" Binding="{Binding Поставщики.Поставщик}"/>
+                <DataGridTextColumn Header="Склад" Binding="{Binding Склады.Склад}"/>
+                <DataGridTemplateColumn Header="Фото">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="150" Height="200" Stretch="Uniform" Source ="{Binding Фотодж.Фото}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="red" Content="Редактировать" HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="dob" Content="Добавить" HorizontalAlignment="Left" Margin="1077,28,0,0" VerticalAlignment="Top" Width="134" Height="23" Click="dob_Click"/>
+        <Button x:Name="vih" Content="Выход" HorizontalAlignment="Left" Margin="1153,606,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="p" HorizontalAlignment="Left" Height="23" Margin="1077,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" TextChanged="p_TextChanged"/>
+        <ComboBox x:Name="fil" HorizontalAlignment="Left" Margin="1077,197,0,0" VerticalAlignment="Top" Width="134" SelectionChanged="fil_SelectionChanged">
+            <TextBlock>Все товары</TextBlock>
+            <TextBlock>Сок</TextBlock>
+            <TextBlock>Заморозка</TextBlock>
+            <TextBlock>Чай/кофе</TextBlock>
+            <TextBlock>Кассовые</TextBlock>
+            <TextBlock>Фитнес питание</TextBlock>
+        </ComboBox>
+        <Button x:Name="fil1" Content="Фильтрация" HorizontalAlignment="Left" Margin="1077,244,0,0" VerticalAlignment="Top" Width="134" Click="fil1_Click"/>
+        <Button x:Name="del" Content="Удалить" HorizontalAlignment="Left" Margin="1077,310,0,0" VerticalAlignment="Top" Width="134" Click="del_Click"/>
+        <Label Content="Поиск" HorizontalAlignment="Left" Margin="1077,129,0,0" VerticalAlignment="Top" Width="134" Background="White" FontSize="14" FontFamily="Segoe UI Emoji"/>
+
+    </Grid>
+</Window>
